@@ -1,8 +1,9 @@
-import file
+
 
 
 def main():
-    file.deal_file()
+    pass
+   
     
 if __name__ == "__main__":
     main()
