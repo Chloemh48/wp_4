@@ -5,16 +5,6 @@ import json
 from datetime import datetime
 from collections import defaultdict
 
-# x = [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]
-# y = [38496, 42000, 46752, 49320, 53200, 56000, 62316, 64928,
-#      67317, 68748, 73752]
-
-# plt.plot(x, y)
-# plt.xlabel("Ages")
-# plt.ylabel("Median Salary (USD)")
-# plt.title('Median Salary (USD) by Age')
-# plt.show()
-
 
 def visualize():
     with open('/Users/liyuanyuan/Desktop/GitHub/wp_4/ir.txt', 'r') as file:
@@ -24,11 +14,14 @@ def visualize():
 
     data_temps = []
     for tp in data["data"]:
+        daily_mean_temp = (tp["max_temp"] + tp['min_temp']) / 2
         
-        data_temps.append([tp["datetime"], tp["max_temp"]])
+        data_temps.append([tp["datetime"],daily_mean_temp])
 
     with open('temp.txt', 'w') as f:
         json.dump(data_temps, f, indent=4)
+
+
 
     monthly_temps = defaultdict(lambda: {'sum': 0, 'count': 0})
 
@@ -66,7 +59,7 @@ def plot(avg_temp):
     axs[0].tick_params(axis = 'x',rotation=45)
    
     axs[1].bar(x_axis, y_axis, color='orange')
-    axs[1].set_title("Average Monthly Temperatures of City Irvine from Mar 2023 to Feb 2024")
+    axs[1].set_title("Average Monthly Temperatures of City Irvine ';l,./,,./from Mar 2023 to Feb 2024")
     axs[1].set_xlabel("Months")
     axs[1].set_ylabel("Temperature (°C)")
     axs[1].tick_params(axis='x', rotation=45)
@@ -80,6 +73,8 @@ def main():
     print(avg_temp)
     
     plot(avg_temp)
+
+   
 
 if __name__ == '__main__':
     main()
