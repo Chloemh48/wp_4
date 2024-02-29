@@ -51,11 +51,31 @@ def visualize():
     return avg_temp
 
 def plot(avg_temp):
-    x_axis = ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb']
-    y_axis = avg_temp
+    y_axis = []
+    x_axis = ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec', 'Jan-2024', 'Feb-2024']
+    for temp in avg_temp: 
+        temp= float(temp.strip('°'))
+        y_axis. append(temp)
+    
+    
     plt.plot(x_axis,y_axis)
+    plt.title("Average Monthly Temperatures from Mar 2023 to Feb 2024")
+    plt.xlabel("Months")
+    plt.ylabel("plt.ylabel('Temperature (°C)')")
+    plt.xticks(rotation=45)
+    plt.tight_layout()
     plt.show()
 
+    plt.figure(figsize=(10, 5))
+    plt.bar(x_axis, y_axis, color='orange')
+
+    plt.title('Average Monthly Temperatures from Mar 2023 to Feb 2024')
+    plt.xlabel('Month')
+    plt.ylabel('Temperature (°C)')
+    plt.xticks(rotation=30)
+    plt.tight_layout()
+
+    plt.show()
 
 
 def main():
