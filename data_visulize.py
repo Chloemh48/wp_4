@@ -47,15 +47,22 @@ def visualize():
     for month_year, temps in sorted(monthly_temps.items()):
         average_temp = temps['sum'] / temps['count']
         print(f"Average temperature for {month_year}: {average_temp:.2f}°")
-        avg_temp. append(f'{average_temp:.2f}°')
-    print(avg_temp)
+        avg_temp.append(f'{average_temp:.2f}°')
+    return avg_temp
 
+def plot(avg_temp):
+    x_axis = ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb']
+    y_axis = avg_temp
+    plt.plot(x_axis,y_axis)
+    plt.show()
 
 
 
 def main():
+    avg_temp = visualize()
+    print(avg_temp)
     
-    visualize()
+    plot(avg_temp)
 
 if __name__ == '__main__':
     main()
