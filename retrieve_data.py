@@ -6,6 +6,7 @@ from datetime import datetime
 from collections import defaultdict
 
 def get_air_quality():
+    
     context = ssl._create_unverified_context()
     API_KEY = 'eacd6c69cbec4827a22c2f8c0b5daab8'  # Replace with your actual API key
 
@@ -29,7 +30,7 @@ def get_air_quality():
     return filename_out
 
 
-def get_aqi(filename_out):
+def cal_mean_aqi(filename_out):
     print('Data is loading...')
     try:
         with open(filename_out,'r') as file:

@@ -1,16 +1,17 @@
+
+import retrieve_data as rd
 import data_visulize as dv
-from data_into_file import cal_mean_temp
 
 
 def main():
-    
-    avg_temp = cal_mean_temp()
-    print(avg_temp)
-    
-    dv.plot(avg_temp)
+    filename_out = rd.get_air_quality()
 
-   
-    
+    if filename_out:
+        avg_aqi = rd.cal_mean_aqi(filename_out)
+        print(avg_aqi)
+        
+        dv.plot(avg_aqi)
+
+
 if __name__ == "__main__":
-    print("test")
     main()
