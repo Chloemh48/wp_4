@@ -1,5 +1,5 @@
 import data_visulize as dv
-from file import cal_mean_temp
+from data_into_file import cal_mean_temp
 
 
 def main():
@@ -12,5 +12,5 @@ def main():
    
     
 if __name__ == "__main__":
-    print("hi")
+    print("test")
     main()

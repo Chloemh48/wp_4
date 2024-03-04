@@ -2,11 +2,15 @@
 import json
 from datetime import datetime
 from collections import defaultdict
-
+import retrieve_data as rd
 
 def cal_mean_temp():
-    with open('/Users/liyuanyuan/Desktop/GitHub/wp_4/ir.txt', 'r') as file:
-        print("Open file")
+    rd.deal_file()
+    print('Data is loading...')
+    # with open('/Users/liyuanyuan/Desktop/GitHub/wp_4/irvibe.txt', 'r') as file:
+    with open('irvine.txt', 'r') as file:
+
+        print("File is openning...")
         data = json.load(file)  
 
 
